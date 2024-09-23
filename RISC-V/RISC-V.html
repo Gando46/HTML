@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RISC-V vs ARM: Comparació d'Arquitectures</title>
+    <title>RISC vs CISC: Comparació d'Arquitectures</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@
         .container {
             max-width: 1000px;
             margin: auto;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -50,88 +50,89 @@
 </head>
 <body>
     <div class="container">
-        <h1>RISC-V vs ARM: Comparació d'Arquitectures de Conjunts d'Instruccions</h1>
+        <h1>RISC vs CISC: Comparació d'Arquitectures de Conjunts d'Instruccions</h1>
         
-        <p><strong>Resum:</strong> En aquest article es presenta una comparació detallada entre RISC-V i ARM, dues de les arquitectures de conjunts d'instruccions (ISA) més influents en el camp de la computació. RISC-V és un ISA obert i gratuït, mentre que ARM és un ISA propietari molt utilitzat en dispositius mòbils i embeguts. Avaluarem avantatges, desavantatges i els seus usos en diferents aplicacions.</p>
+        <p><strong>Resum:</strong> En aquest article es presenta una comparació detallada entre les arquitectures RISC (Reduced Instruction Set Computing) i CISC (Complex Instruction Set Computing), dues de les filosofies més utilitzades en el disseny de conjunts d'instruccions (ISA). Avaluarem els avantatges, desavantatges i les seves aplicacions en diferents sectors de la computació.</p>
 
         <h2>1. Introducció a RISC-V</h2>
-        <p>RISC-V és una arquitectura de conjunt d'instruccions basada en la filosofia de la computació de conjunt d'instruccions reduïdes (<em>Reduced Instruction Set Computing</em>, o RISC). Va ser desenvolupada inicialment a la Universitat de Califòrnia, Berkeley, amb l'objectiu de crear un ISA que fos obert, escalable i adaptable a diverses aplicacions, des de dispositius embeguts fins a supercomputadors.</p>
+        <p>RISC-V és una arquitectura de conjunt d'instruccions basada en la filosofia de la computació de conjunt d'instruccions reduïdes (<em>Reduced Instruction Set Computing</em>, o RISC). Va ser desenvolupada inicialment a la Universitat de Califòrnia, Berkeley, amb l'objectiu de crear un ISA obert, escalable i adaptable a diverses aplicacions, des de dispositius embeguts fins a supercomputadors.</p>
 
-        <h2>2. Introducció a ARM</h2>
-        <p>ARM és una de les arquitectures de conjunts d'instruccions més utilitzades al món, especialment en dispositius mòbils i sistemes embeguts. Com RISC-V, segueix una filosofia RISC, però a diferència de RISC-V, ARM és propietària i està controlada per ARM Holdings, que llicencia el seu ús a fabricants de xips com Qualcomm, Apple i Samsung.</p>
+        <h2>2. Introducció a CISC</h2>
+        <p>CISC, acrònim de <em>Complex Instruction Set Computing</em>, és una filosofia de disseny d'arquitectura de conjunts d'instruccions on els processadors estan dissenyats per executar una sèrie d'instruccions complexes. Cada instrucció pot realitzar múltiples operacions de baix nivell, com càrregues de memòria, operacions aritmètiques o control de flux.</p>
 
-        <h2>3. Comparació Tècnica</h2>
+        <h2>3. Comparació Tècnica: RISC vs CISC</h2>
+        <p>A continuació es presenta una comparació de les principals característiques i diferències entre les arquitectures RISC i CISC:</p>
         <table>
             <thead>
                 <tr>
                     <th>Característica</th>
-                    <th>RISC-V</th>
-                    <th>ARM</th>
+                    <th>RISC</th>
+                    <th>CISC</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Tipus d'Arquitectura</strong></td>
-                    <td>Obert i lliure</td>
-                    <td>Propietari, sota llicència</td>
+                    <td><strong>Tipus d'Instruccions</strong></td>
+                    <td>Poques instruccions senzilles i ràpides</td>
+                    <td>Instruccions complexes que realitzen múltiples operacions</td>
                 </tr>
                 <tr>
-                    <td><strong>Filosofia</strong></td>
-                    <td>RISC (Reduced Instruction Set Computing)</td>
-                    <td>RISC</td>
+                    <td><strong>Execució d'Instruccions</strong></td>
+                    <td>Una instrucció per cicle de rellotge (en general)</td>
+                    <td>Pot requerir diversos cicles de rellotge per instrucció</td>
                 </tr>
                 <tr>
-                    <td><strong>Modularitat</strong></td>
-                    <td>Altament modular, permet extensions personalitzades</td>
-                    <td>Més rigidesa, però amb moltes variants disponibles</td>
+                    <td><strong>Accés a la Memòria</strong></td>
+                    <td>Només les instruccions específiques de càrrega i emmagatzematge accedeixen a la memòria</td>
+                    <td>Moltes instruccions poden accedir directament a la memòria</td>
                 </tr>
                 <tr>
-                    <td><strong>Cost de Llicència</strong></td>
-                    <td>Gratuït, sense cost de llicència</td>
-                    <td>Requereix pagament de llicències</td>
+                    <td><strong>Nombre d'Instruccions</strong></td>
+                    <td>Menor nombre d'instruccions, però més freqüència d'ús</td>
+                    <td>Nombre d'instruccions més gran i complex</td>
                 </tr>
                 <tr>
-                    <td><strong>Mercats Principals</strong></td>
-                    <td>Dispositius embeguts, computació d'alt rendiment, investigació</td>
-                    <td>Dispositius mòbils, embeguts, processadors per a consumidors</td>
+                    <td><strong>Optimització</strong></td>
+                    <td>Processadors més senzills, optimitzats per a rendiment i eficiència energètica</td>
+                    <td>Processadors més complexos, optimitzats per a una major funcionalitat</td>
                 </tr>
                 <tr>
-                    <td><strong>Ecosistema de Suport</strong></td>
-                    <td>En creixement, però encara limitat en comparació amb ARM</td>
-                    <td>Extens, amb un gran suport de fabricants i desenvolupadors</td>
+                    <td><strong>Aplicacions Principals</strong></td>
+                    <td>Dispositius embeguts, sistemes mòbils, aplicacions en temps real</td>
+                    <td>Servidors, ordinadors personals, aplicacions complexes</td>
                 </tr>
             </tbody>
         </table>
 
-        <h2>4. Avantatges i Desavantatges de RISC-V</h2>
+        <h2>4. Avantatges i Desavantatges de RISC</h2>
         <p><strong>Avantatges:</strong></p>
         <ul>
-            <li>Obertura i llibertat: Qualsevol pot utilitzar i modificar l'ISA sense pagar llicències.</li>
-            <li>Modularitat: RISC-V permet afegir extensions personalitzades, fent-lo adaptable a diferents aplicacions.</li>
-            <li>Eficiència: Com una arquitectura RISC, està dissenyada per ser eficient en el consum d'energia i rendiment.</li>
+            <li>Simplicitat: Les instruccions són simples i el processador pot executar-les ràpidament.</li>
+            <li>Eficiència energètica: L'arquitectura està dissenyada per consumir menys energia, important per a dispositius mòbils i embeguts.</li>
+            <li>Facilitat de pipeline: L'ús d'instruccions senzilles permet que els processadors utilitzin pipelines de manera eficient.</li>
         </ul>
 
         <p><strong>Desavantatges:</strong></p>
         <ul>
-            <li>Ecosistema més limitat: Encara que està creixent, no té el mateix nivell de suport i eines que ARM.</li>
-            <li>Menys madur: RISC-V és relativament nou en comparació amb ARM, i encara s'està establint en molts mercats.</li>
+            <li>Més instruccions necessàries: Per completar una tasca, RISC pot requerir més instruccions que CISC.</li>
+            <li>Ecosistema: Encara que està creixent, el suport per RISC-V és més limitat en comparació amb arquitectures CISC com x86.</li>
         </ul>
 
-        <h2>5. Avantatges i Desavantatges d'ARM</h2>
+        <h2>5. Avantatges i Desavantatges de CISC</h2>
         <p><strong>Avantatges:</strong></p>
         <ul>
-            <li>Ecosistema establert: ARM té un suport massiu de la indústria, amb eines de desenvolupament i optimització àmpliament disponibles.</li>
-            <li>Popularitat: És l'arquitectura dominant en dispositius mòbils i altres sistemes embeguts.</li>
+            <li>Més funcionalitat: Cada instrucció pot fer més, permetent un codi més compacte.</li>
+            <li>Compatibilitat: Les arquitectures CISC, com x86, són àmpliament utilitzades i compten amb un suport enorme.</li>
         </ul>
 
         <p><strong>Desavantatges:</strong></p>
         <ul>
-            <li>Costa de llicències: Les empreses han de pagar per llicenciar la tecnologia ARM.</li>
-            <li>Més tancat: La natura propietària d'ARM limita la capacitat per personalitzar l'ISA.</li>
+            <li>Complexitat del maquinari: L'execució de les instruccions complexes requereix un maquinari més complicat.</li>
+            <li>Menys eficiència energètica: Les instruccions complexes poden consumir més energia.</li>
         </ul>
 
         <h2>6. Conclusió</h2>
-        <p>RISC-V i ARM representen dues filosofies diferents en el desenvolupament d'arquitectures de conjunts d'instruccions. Mentre que ARM domina en el mercat de dispositius mòbils i embeguts amb un ecosistema robust i establert, RISC-V ofereix una alternativa oberta i flexible, que permet innovacions sense restriccions de llicència. En els propers anys, és probable que veiem un creixement significatiu de RISC-V a mesura que es desenvolupi el seu ecosistema.</p>
+        <p>La comparació entre RISC i CISC il·lustra dues filosofies diferents en el disseny d'arquitectures de conjunts d'instruccions. RISC busca la simplicitat i l'eficiència, ideal per a aplicacions que necessiten rendiment i baix consum energètic, com els dispositius embeguts i mòbils. Per altra banda, CISC opta per oferir instruccions més potents que poden simplificar el codi però requereixen maquinari més complex. Ambdós enfocaments tenen els seus punts forts i febles, i la seva elecció depèn de les necessitats específiques de l'aplicació.</p>
 
     </div>
 </body>
