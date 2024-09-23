@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparació entre RISC-V i MIPS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #2e3d49;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #4a90e2;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+            color: #34495e;
+            margin-top: 1.5rem;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: #34495e;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f39c12;
+            color: white;
+        }
+        td {
+            background-color: #fdfdfd;
+        }
+        ul {
+            list-style-type: disc;
+            margin: 10px 0;
+            padding-left: 40px;
+        }
+        .highlight {
+            background-color: #f7f8fa;
+            padding: 10px;
+            border-left: 4px solid #f39c12;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .code {
+            background-color: #ecf0f1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparació entre RISC-V i MIPS: Arquitectura i Llenguatge Assemblador</h1>
+        
+        <p><strong>Resum:</strong> En aquest article es presenta una comparació entre dues arquitectures basades en el model RISC (Reduced Instruction Set Computing): **RISC-V** i **MIPS**. Ambdues arquitectures han estat influents en el món de la computació, especialment en sistemes embeguts i acadèmics. Compararem els seus aspectes tècnics, tant a nivell de maquinari com en el llenguatge assemblador, per comprendre millor les diferències i similituds entre aquestes arquitectures.</p>
+
+        <h2>1. Introducció a RISC-V</h2>
+        <p>RISC-V és una arquitectura de conjunt d'instruccions obert i lliure basada en el model RISC. Va ser desenvolupada a la Universitat de Califòrnia, Berkeley, amb l'objectiu de proporcionar una plataforma ISA obert que pogués ser utilitzada en diferents àrees de la computació, des de dispositius embeguts fins a supercomputadors. La seva naturalesa oberta permet que sigui altament modular, cosa que facilita la personalització.</p>
+
+        <h2>2. Introducció a MIPS</h2>
+        <p>MIPS (Microprocessor without Interlocked Pipeline Stages) és una arquitectura basada en RISC desenvolupada a mitjans de la dècada de 1980 per MIPS Computer Systems. Ha estat àmpliament utilitzada en sistemes embeguts, routers i altres dispositius. Tot i que inicialment va ser una arquitectura d'ús comercial, MIPS ha jugat un paper important en el món acadèmic, com una plataforma per a l'aprenentatge del disseny de processadors.</p>
+
+        <h2>3. Comparació Tècnica: RISC-V vs MIPS</h2>
+        <p>A continuació es presenta una comparació tècnica de les dues arquitectures en termes de disseny de maquinari i llenguatge assemblador.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>RISC-V</th>
+                    <th>MIPS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tipus d'Arquitectura</strong></td>
+                    <td>ISA obert i modular, permet extensions personalitzades</td>
+                    <td>ISA propietari (amb algunes versions obertes disponibles)</td>
+                </tr>
+                <tr>
+                    <td><strong>Conjunt d'Instruccions</strong></td>
+                    <td>Conjunt d'instruccions bàsic amb possibilitat d'extensions</td>
+                    <td>Conjunt d'instruccions fixe, orientat a simplificar el pipeline</td>
+                </tr>
+                <tr>
+                    <td><strong>Registres</strong></td>
+                    <td>32 registres de propòsit general (en la majoria de configuracions)</td>
+                    <td>32 registres de propòsit general</td>
+                </tr>
+                <tr>
+                    <td><strong>Suport per Pipelining</strong></td>
+                    <td>Fort suport per pipeline, amb instruccions dissenyades per evitar dependències</td>
+                    <td>Dissenyat específicament per a pipeline sense bloquejos</td>
+                </tr>
+                <tr>
+                    <td><strong>Compatibilitat de Retrocedència</strong></td>
+                    <td>Compatibilitat flexible gràcies a l'arquitectura modular</td>
+                    <td>Les versions posteriors de MIPS han mantingut compatibilitat amb les més antigues</td>
+                </tr>
+                <tr>
+                    <td><strong>Modularitat</strong></td>
+                    <td>Altament modular: fàcil afegir extensions com les de multiplicació, vectorial i atòmica</td>
+                    <td>Menys modular en comparació, extensions són més fixes</td>
+                </tr>
+                <tr>
+                    <td><strong>Usos Principals</strong></td>
+                    <td>Dispositius embeguts, investigació acadèmica, computació d'alt rendiment</td>
+                    <td>Dispositius embeguts, sistemes de xarxa, aplicacions comercials</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Comparació a nivell de Llenguatge Assemblador</h2>
+        <p>Compararem ara algunes de les diferències i similituds entre els llenguatges assemblador de RISC-V i MIPS.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Instrucció</th>
+                    <th>RISC-V</th>
+                    <th>MIPS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Càrrega de valor immediat (Load Immediate)</strong></td>
+                    <td><code>li t0, 5</code> (carrega 5 al registre <code>t0</code>)</td>
+                    <td><code>li $t0, 5</code> (carrega 5 al registre <code>$t0</code>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Operació aritmètica (Addició)</strong></td>
+                    <td><code>add t1, t0, t2</code> (t1 = t0 + t2)</td>
+                    <td><code>add $t1, $t0, $t2</code> (t1 = t0 + t2)</td>
+                </tr>
+                <tr>
+                    <td><strong>Accés a Memòria (Càrrega)</strong></td>
+                    <td><code>lw t1, 0(t0)</code> (carrega la paraula a l'adreça t0 a t1)</td>
+                    <td><code>lw $t1, 0($t0)</code> (carrega la paraula a l'adreça t0 a t1)</td>
+                </tr>
+                <tr>
+                    <td><strong>Branching (Salt condicional)</strong></td>
+                    <td><code>beq t0, t1, label</code> (salta a label si t0 == t1)</td>
+                    <td><code>beq $t0, $t1, label</code> (salta a label si t0 == t1)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>5. Avantatges i Desavantatges de RISC-V</h2>
+        <p><strong>Avantatges:</strong></p>
+        <ul>
+            <li>Arquitectura modular i obertura: Permet una gran flexibilitat per a personalitzar segons l'aplicació.</li>
+            <li>Gratuït i obert: No requereix llicències, la qual cosa fomenta la innovació.</li>
+            <li>Suport per a extensions: Fàcil d'afegir noves capacitats a través d'extensions.</li>
+        </ul>
+
+        <p><strong>Desavantatges:</strong></p>
+        <ul>
+            <li>Menor maduresa en comparació amb arquitectures comercials establertes com MIPS o ARM.</li>
+            <li>Ecosistema d'eines de desenvolupament encara en creixement.</li>
+        </ul>
+
+        <h2>6. Avantatges i Desavantatges de MIPS</h2>
+        <p><strong>Avantatges:</strong></p>
+        <ul>
+            <li>Arquitectura establerta amb anys de suport i eines de desenvolupament madures.</li>
+            <li>Ampliament utilitzat en sistemes embeguts i xarxes gràcies a la seva fiabilitat i estabilitat.</li>
+            <li>Compatibilitat de retrocedència mantinguda entre diferents versions de MIPS.</li>
+        </ul>
+
+        <p><strong>Desavantatges:</strong></p>
+        <ul>
+            <li>ISA propietari: Tot i que existeixen versions obertes, la majoria de variants requereixen llicències.</li>
+            <li>Menor flexibilitat que RISC-V en termes de modularitat i personalització.</li>
+        </ul>
+
+        <h2>7. Conclusió</h2>
+        <p>Tot i que tant RISC-V com MIPS són arquitectures basades en el concepte RISC, cada una té els seus punts forts i febles. RISC-V destaca per la seva naturalesa oberta i la seva flexibilitat, especialment en la investigació acadèmica i les àrees d'innovació, mentre que MIPS ofereix un ecosistema consolidat i fiabilitat en entorns comercials i embeguts. La decisió de quin utilitzar depèn de les necessitats específiques del projecte, la flexibilitat requerida i els recursos disponibles per al desenvolupament.</p>
+    </div>
+</body>
+</html>
+
